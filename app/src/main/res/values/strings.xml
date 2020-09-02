@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CC-Retrofit-GameSuit</string>
+    <string name="txt_login">Login</string>
+    <string name="text_register">Register</string>
+    <string name="txt_username">Username</string>
+    <string name="txt_password">Password</string>
+    <string name="password_default">binar123</string>
+    <string name="username_default">sabrina</string>
+    <string name="text_daftarkan_akunmu">Daftarkan Akunmu</string>
+    <string name="text_username">Username</string>
+    <string name="text_email">Email</string>
+    <string name="text_password">Password</string>
+    <string name="text_daftar">Daftar</string>
+    <string name="text_sudah_punya_akun">Sudah Punya Akun?</string>
+    <string name="text_click_here">Click Here</string>
 </resources>

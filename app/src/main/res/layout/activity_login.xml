@@ -4,6 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.LoginActivity">
+    tools:context=".auth.login.LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineTopLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"/>
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorBlue"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/txt_username"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/colorFont"
+        android:textColorHint="@color/colorBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideLineTopLogin"
+        android:autofillHints="@string/username_default"/>
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorBlue"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/txt_password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="@color/colorFont"
+        android:textColorHint="@color/colorBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_username"
+        android:autofillHints="@string/password_default" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="150dp"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="@string/txt_login"
+            android:background="@drawable/custome_background_button"
+            android:textColor="@color/colorBlue"
+            />
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="150dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginStart="8dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="@string/text_register"
+            android:background="@drawable/custome_background_button"
+            android:textColor="@color/colorBlue"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
