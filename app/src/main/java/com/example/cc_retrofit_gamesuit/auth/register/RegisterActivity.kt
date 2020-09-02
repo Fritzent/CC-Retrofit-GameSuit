@@ -29,7 +29,15 @@ class RegisterActivity : AppCompatActivity(), RegisterActivityPresenter.Listener
         }
 
         binding.btnRegister.setOnClickListener {
-            if(binding.inputTextUsername.text.isEmpty() && binding.inputTextEmail.text.isEmpty() && binding.inputTextPassword.text.isEmpty()){
+            if(binding.inputTextUsername.text.isNotEmpty() && binding.inputTextEmail.text.isNotEmpty() && binding.inputTextPassword.text.isNotEmpty()) {
+                //here code to register
+                presenter.registerPerson(
+                    binding.inputTextUsername.text.toString(),
+                    binding.inputTextEmail.text.toString(),
+                    binding.inputTextPassword.text.toString()
+                )
+            }
+            else if(binding.inputTextUsername.text.isEmpty() && binding.inputTextEmail.text.isEmpty() && binding.inputTextPassword.text.isEmpty()){
                 Toast.makeText(this, "Username, Email dan Password anda Kosong", Toast.LENGTH_LONG).show()
                 binding.inputTextUsername.requestFocus()
             }else if(binding.inputTextUsername.text.isEmpty() && binding.inputTextEmail.text.isNotEmpty() && binding.inputTextPassword.text.isNotEmpty()) {
@@ -41,10 +49,8 @@ class RegisterActivity : AppCompatActivity(), RegisterActivityPresenter.Listener
             }else if(binding.inputTextUsername.text.isNotEmpty() && binding.inputTextEmail.text.isNotEmpty() && binding.inputTextPassword.text.isEmpty()) {
                 Toast.makeText(this, "Password anda Kosong", Toast.LENGTH_LONG).show()
                 binding.inputTextPassword.requestFocus()
-            }else if(binding.inputTextUsername.text.isNotEmpty() && binding.inputTextEmail.text.isNotEmpty() && binding.inputTextPassword.text.isNotEmpty()) {
-                //here code to register
-                presenter.registerPerson(binding.inputTextUsername.text.toString(), binding.inputTextEmail.text.toString(), binding.inputTextPassword.text.toString())
-            } else {
+            }
+            else {
                 Toast.makeText(this, "Terdapat Kesalahan Pada Inputan", Toast.LENGTH_LONG).show()
             }
         }

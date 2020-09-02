@@ -26,7 +26,7 @@ class RegisterActivityPresenter(val listener : Listener) {
                 call: Call<PostPersonRegisterResponse>,
                 response: Response<PostPersonRegisterResponse>
             ) {
-                if(response.isSuccessful && response.body()?.status == 200) {
+                if(response.isSuccessful && response.body()?.status == 201) {
                     listener.onRegisterSuccess("${response.body()?.message}")
                 }else {
                     listener.onRegisterFailure("${response.body()?.message}")
