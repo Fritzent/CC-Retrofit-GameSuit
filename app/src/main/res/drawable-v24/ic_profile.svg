@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-ic_profile">
+      <rect width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="ic_profile" clip-path="url(#clip-ic_profile)">
+    <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(12 3)" fill="#bdc8d2" stroke="#261652" stroke-width="2">
+      <circle cx="8.5" cy="8.5" r="8.5" stroke="none"/>
+      <circle cx="8.5" cy="8.5" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_16" data-name="Ellipse 16" transform="translate(3 23)" fill="#fff" stroke="#261652" stroke-width="2">
+      <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+      <circle cx="17.5" cy="17.5" r="16.5" fill="none"/>
+    </g>
+    <path id="Path_19" data-name="Path 19" d="M2022.3,379.738s1.032-6.572,9.867-8.125" transform="translate(-2013 -344)" fill="none" stroke="#261652" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
