@@ -11,14 +11,19 @@ class ProfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil)
 
-        tvUsernameEdit.setOnClickListener {
-            val fm  = supportFragmentManager
-            EditUsernameFragment().show(fm,"Edit Username Fragment")
-        }
-
-        tvEmailEdit.setOnClickListener {
-            val fm  = supportFragmentManager
-            EditEmailFragment().show(fm,"Edit Email Fragment")
-        }
+//        tvUsernameEdit.setOnClickListener {
+//            val fm  = supportFragmentManager
+//            EditUsernameFragment().show(fm,"Edit Username Fragment")
+//        }
+//
+//        tvEmailEdit.setOnClickListener {
+//            val fm  = supportFragmentManager
+//            EditEmailFragment().show(fm,"Edit Email Fragment")
+//        }
     }
+
+//    fun showedituser() {
+//        val fm  = supportFragmentManager
+//        EditUsernameFragment().show(fm,"Edit Username Fragment")
+//    }
 }

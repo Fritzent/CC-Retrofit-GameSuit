@@ -33,29 +33,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/etEmail"
+        <TextView
+            android:id="@+id/tvIsiEmail"
             app:layout_constraintTop_toBottomOf="@id/tvEmail"
             app:layout_constraintStart_toStartOf="@id/tvEmail"
             android:layout_width="match_parent"
+            android:text="ini email"
             android:textSize="12sp"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tvUsername"
             android:text="username"
-            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiEmail"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/etUsername"
+        <TextView
+            android:id="@+id/tvIsiUsername"
             app:layout_constraintTop_toBottomOf="@id/tvUsername"
             app:layout_constraintStart_toStartOf="@id/tvEmail"
             android:textSize="12sp"
+            android:text="ini username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.home.HomeActivity
+import kotlinx.android.synthetic.main.fragment_edit_email.*
+import kotlinx.android.synthetic.main.fragment_edit_username.*
+import kotlinx.android.synthetic.main.fragment_profil.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +25,7 @@ class ProfilFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+//    private lateinit var myContext: ProfilFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +42,22 @@ class ProfilFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profil, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+       // val activity = myContext
+        super.onViewCreated(view, savedInstanceState)
+
+        tvIsiUsername.setOnClickListener {
+//            val fm  = it.context.supportFragmentManager
+//            EditUsernameFragment().show(fm,"Edit Username Fragment")
+            (activity as HomeActivity).showEditUser()
+        }
+
+        tvIsiEmail.setOnClickListener {
+            (activity as HomeActivity).showEditEmail()
+        }
+    }
+    
 
     companion object {
         /**
