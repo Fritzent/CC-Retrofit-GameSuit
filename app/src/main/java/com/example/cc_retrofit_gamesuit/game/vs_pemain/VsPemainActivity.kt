@@ -2,8 +2,10 @@ package com.example.cc_retrofit_gamesuit.game.vs_pemain
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
 import com.example.cc_retrofit_gamesuit.databinding.ActivityGameBinding
 
 class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
@@ -17,12 +19,12 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
         } catch (e: NullPointerException) {}
 
         binding = ActivityGameBinding.inflate(layoutInflater)
-        presenter = VsPemainPresenter(this)
+
+        HistoryGameDatabase.getInstance(this)?.let {
+            presenter = VsPemainPresenter(it, this)
+        }
 
         val view = binding.root
-
-//        var pilihan: String
-//        var pilihanCom: String
 
         binding.tvComputer.text = "Pemain 2"
 
@@ -52,10 +54,6 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
             binding.ivGuntingPemain.setBackgroundResource(0)
 
             binding.ivHasilPertandingan.setImageResource(R.drawable.vs)
-        }
-
-        binding.loveBTN.setOnClickListener {
-            binding.loveBTN.setImageResource(R.drawable.ic_save_active)
         }
 
         binding.backBTN.setOnClickListener {
@@ -88,6 +86,18 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
         binding.ivKertasPemain.isClickable = false
 
         binding.ivBatuPemain.setBackgroundResource(R.drawable.bg_click)
+
+        binding.ivBatuCom.setOnClickListener {
+            presenter.batuP2()
+        }
+
+        binding.ivGuntingCom.setOnClickListener {
+            presenter.guntingP2()
+        }
+
+        binding.ivKertasCom.setOnClickListener {
+            presenter.kertasP2()
+        }
     }
 
     override fun guntingP1onClick() {
@@ -145,6 +155,10 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         presenter.logicGame()
         presenter.menampilkanHasil()
+
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
     }
 
     override fun guntingP2onCLick() {
@@ -158,6 +172,10 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         presenter.logicGame()
         presenter.menampilkanHasil()
+
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
     }
 
     override fun kertasP2onClick() {
@@ -171,5 +189,26 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         presenter.logicGame()
         presenter.menampilkanHasil()
+
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
+    }
+
+    override fun loveOnClick() {
+        binding.loveBTN.setImageResource(R.drawable.ic_save_active)
+        binding.loveBTN.isClickable = false
+    }
+
+    override fun showSaveSuccess() {
+        runOnUiThread {
+            Toast.makeText(this, "Data telah disimpan", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun showSaveFailed() {
+        runOnUiThread {
+            Toast.makeText(this, "Data gagal disimpan", Toast.LENGTH_SHORT).show()
+        }
     }
 }

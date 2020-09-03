@@ -1,11 +1,18 @@
 package com.example.cc_retrofit_gamesuit.game.vs_pemain
 
 import android.util.Log
+import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGame
+import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
-class VsPemainPresenter(val listener: Listener) {
-    lateinit var pilihan: String
-    lateinit var pilihanPemain2: String
-    lateinit var hasil: String
+class VsPemainPresenter(private val db: HistoryGameDatabase, private val listener: Listener) {
+    private lateinit var pilihan: String
+    private lateinit var pilihanPemain2: String
+    private lateinit var hasil: String
+    private lateinit var tanggal: String
 
     interface Listener {
         fun tampilHasilMenang()
@@ -17,7 +24,13 @@ class VsPemainPresenter(val listener: Listener) {
         fun batuP2onCLick()
         fun guntingP2onCLick()
         fun kertasP2onClick()
+        fun loveOnClick()
+
+        fun showSaveSuccess()
+        fun showSaveFailed()
     }
+
+
 
     fun batuP1(){
         listener.batuP1onClick()
@@ -80,6 +93,33 @@ class VsPemainPresenter(val listener: Listener) {
                 "batu" -> hasil = "menang"
                 "gunting" -> hasil = "kalah"
                 "kertas" -> hasil = "draw"
+            }
+        }
+    }
+
+    private fun getTanggal(){
+        tanggal = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Date())
+    }
+
+    fun loveClick(){
+        getTanggal()
+
+        val history = HistoryGame(null, tanggal, hasil)
+        saveHistory(history)
+
+        listener.loveOnClick()
+    }
+
+
+    private fun saveHistory(historyGame: HistoryGame){
+        GlobalScope.launch {
+            val totalSaved = db.historyGameDao().add(historyGame)
+
+            Log.d("Hasil", "${historyGame.hasil}, ${historyGame.tanggal}")
+            if (totalSaved > 0) {
+                listener.showSaveSuccess()
+            } else {
+                listener.showSaveFailed()
             }
         }
     }

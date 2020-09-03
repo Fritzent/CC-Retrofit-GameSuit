@@ -1,11 +1,12 @@
 package com.example.cc_retrofit_gamesuit.game.vs_computer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
 import com.example.cc_retrofit_gamesuit.databinding.ActivityGameBinding
-import kotlin.system.exitProcess
 
 class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
     private lateinit var binding: ActivityGameBinding
@@ -19,7 +20,9 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         } catch (e: NullPointerException) {}
 
         binding = ActivityGameBinding.inflate(layoutInflater)
-        presenter = VsComputerPresenter(this)
+        HistoryGameDatabase.getInstance(this)?.let {
+            presenter = VsComputerPresenter(it, this)
+        }
 
         val view = binding.root
 
@@ -51,10 +54,6 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
             binding.ivHasilPertandingan.setImageResource(R.drawable.vs)
         }
 
-        binding.loveBTN.setOnClickListener {
-            binding.loveBTN.setImageResource(R.drawable.ic_save_active)
-        }
-
         binding.backBTN.setOnClickListener {
             finish()
         }
@@ -82,6 +81,10 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         presenter.logicGame()
         presenter.menampilkanHasil()
 
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
+
 
         binding.ivBatuPemain.isClickable = false
         binding.ivGuntingPemain.isClickable = false
@@ -95,6 +98,10 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         presenter.logicGame()
         presenter.menampilkanHasil()
 
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
+
         binding.ivBatuPemain.isClickable = false
         binding.ivGuntingPemain.isClickable = false
         binding.ivKertasPemain.isClickable = false
@@ -107,10 +114,31 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         presenter.logicGame()
         presenter.menampilkanHasil()
 
+        binding.loveBTN.setOnClickListener {
+            presenter.loveClick()
+        }
+
         binding.ivBatuPemain.isClickable = false
         binding.ivGuntingPemain.isClickable = false
         binding.ivKertasPemain.isClickable = false
 
         binding.ivKertasPemain.setBackgroundResource(R.drawable.bg_click)
+    }
+
+    override fun loveOnClick() {
+        binding.loveBTN.setImageResource(R.drawable.ic_save_active)
+        binding.loveBTN.isClickable = false
+    }
+
+    override fun showSaveSuccess() {
+        runOnUiThread {
+            Toast.makeText(this, "Data telah disimpan", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun showSaveFailed() {
+        runOnUiThread {
+            Toast.makeText(this, "Data gagal disimpan", Toast.LENGTH_SHORT).show()
+        }
     }
 }

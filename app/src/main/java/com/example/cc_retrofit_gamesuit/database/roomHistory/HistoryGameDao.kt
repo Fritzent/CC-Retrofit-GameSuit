@@ -2,6 +2,7 @@ package com.example.cc_retrofit_gamesuit.database.roomHistory
 
 import androidx.room.*
 
+@Dao
 interface HistoryGameDao {
     @Query("SELECT * FROM HistoryGame")
     fun getAll(): List<HistoryGame>
