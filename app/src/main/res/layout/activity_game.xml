@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.vs_computer.VsComputerActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/header1"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/header2"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/header3"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvKertas"
+        app:layout_constraintTop_toBottomOf="@id/header1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/comic"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:rotation="-12"
+        android:textColor="#FFA726"
+        android:text="Kertas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvGunting"
+        app:layout_constraintTop_toBottomOf="@id/header2"
+        app:layout_constraintStart_toStartOf="@id/tvKertas"
+        android:fontFamily="@font/comic"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:rotation="-12"
+        android:textColor="#66BB6A"
+        android:text="Gunting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvBatu"
+        app:layout_constraintTop_toBottomOf="@id/header3"
+        app:layout_constraintStart_toStartOf="@id/tvGunting"
+        app:layout_constraintEnd_toEndOf="@id/tvGunting"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/comic"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:rotation="-12"
+        android:textColor="#AB47BC"
+        android:text="Batu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="#29B6F6"
+        android:id="@+id/tvPemain"
+        android:fontFamily="@font/comic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Pemain 1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBatu" />
+
+    <TextView
+        android:fontFamily="@font/comic"
+        app:layout_constraintTop_toTopOf="@id/tvPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivBatuCom"
+        app:layout_constraintStart_toStartOf="@id/ivBatuCom"
+        android:textColor="#29B6F6"
+        android:text="CPU"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:id="@+id/tvComputer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/ivRestart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/ivBatuPemain"
+        app:layout_constraintTop_toBottomOf="@id/tvPemain"
+        app:layout_constraintStart_toStartOf="@id/tvPemain"
+        app:layout_constraintEnd_toEndOf="@id/tvPemain"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivBatuPemain"
+        app:layout_constraintStart_toStartOf="@id/ivBatuPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivBatuPemain"
+        app:layout_constraintBottom_toBottomOf="@id/ivBatuPemain"
+        android:src="@drawable/ic_batu"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivKertasPemain"
+        app:layout_constraintTop_toBottomOf="@id/ivBatuPemain"
+        app:layout_constraintStart_toStartOf="@id/ivBatuPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivBatuPemain"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivKertasPemain"
+        app:layout_constraintStart_toStartOf="@id/ivKertasPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivKertasPemain"
+        app:layout_constraintBottom_toBottomOf="@id/ivKertasPemain"
+        android:src="@drawable/ic_kertas"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivGuntingPemain"
+        app:layout_constraintTop_toBottomOf="@id/ivKertasPemain"
+        app:layout_constraintStart_toStartOf="@id/ivKertasPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivKertasPemain"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivGuntingPemain"
+        app:layout_constraintStart_toStartOf="@id/ivGuntingPemain"
+        app:layout_constraintEnd_toEndOf="@id/ivGuntingPemain"
+        app:layout_constraintBottom_toBottomOf="@id/ivGuntingPemain"
+        android:src="@drawable/ic_gunting"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivBatuCom"
+        app:layout_constraintTop_toBottomOf="@id/tvComputer"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivBatuCom"
+        app:layout_constraintStart_toStartOf="@id/ivBatuCom"
+        app:layout_constraintEnd_toEndOf="@id/ivBatuCom"
+        app:layout_constraintBottom_toBottomOf="@id/ivBatuCom"
+        android:src="@drawable/ic_batu"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivKertasCom"
+        app:layout_constraintTop_toBottomOf="@id/ivBatuCom"
+        app:layout_constraintStart_toStartOf="@id/ivBatuCom"
+        app:layout_constraintEnd_toEndOf="@id/ivBatuCom"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivKertasCom"
+        app:layout_constraintStart_toStartOf="@id/ivKertasCom"
+        app:layout_constraintEnd_toEndOf="@id/ivKertasCom"
+        app:layout_constraintBottom_toBottomOf="@id/ivKertasCom"
+        android:src="@drawable/ic_kertas"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivGuntingCom"
+        app:layout_constraintTop_toBottomOf="@id/ivKertasCom"
+        app:layout_constraintStart_toStartOf="@id/ivKertasCom"
+        app:layout_constraintEnd_toEndOf="@id/ivKertasCom"
+        android:layout_marginTop="24dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@id/ivGuntingCom"
+        app:layout_constraintStart_toStartOf="@id/ivGuntingCom"
+        app:layout_constraintEnd_toEndOf="@id/ivGuntingCom"
+        app:layout_constraintBottom_toBottomOf="@id/ivGuntingCom"
+        android:src="@drawable/ic_gunting"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/ivHasilPertandingan"
+        app:layout_constraintTop_toTopOf="@id/tvPemain"
+        app:layout_constraintBottom_toBottomOf="@id/ivGuntingPemain"
+        app:layout_constraintStart_toEndOf="@id/ivBatuPemain"
+        app:layout_constraintEnd_toStartOf="@id/ivBatuCom"
+        android:src="@drawable/vs"
+        android:rotation="-16"
+        android:layout_width="128dp"
+        android:layout_height="128dp"/>
+
+    <ImageView
+        android:id="@+id/backBTN"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_arrow_left"
+        android:scaleX="-1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageView
+        android:id="@+id/loveBTN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_save"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
