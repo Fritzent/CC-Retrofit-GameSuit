@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="24dp"
+    tools:context=".profil.EditEmailFragment">
+
+    <TextView
+        android:id="@+id/tvTitleEmailEdit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Edit Data Profil"
+        android:textSize="24sp"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvEmailEdit"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleEmailEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Email"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etEmailEdit"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/btnEmailCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Cancel"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@id/btnEmailUpdate"
+        app:layout_constraintTop_toTopOf="@id/btnEmailUpdate" />
+
+    <TextView
+        android:id="@+id/btnEmailUpdate"
+        app:layout_constraintTop_toBottomOf="@id/etEmailEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Update"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
