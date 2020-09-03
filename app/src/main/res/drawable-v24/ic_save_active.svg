@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-ic_save_active">
+      <rect width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="ic_save_active" clip-path="url(#clip-ic_save_active)">
+    <path id="ic_love_active" d="M20.928,37.726l-2.745-2.5C8.435,26.39,2,20.562,2,13.408A10.308,10.308,0,0,1,12.41,3a11.336,11.336,0,0,1,8.517,3.955A11.336,11.336,0,0,1,29.445,3a10.308,10.308,0,0,1,10.41,10.408c0,7.153-6.435,12.982-16.183,21.839Z" transform="translate(-0.607 -0.155)" fill="#ff2667"/>
+  </g>
+</svg>
