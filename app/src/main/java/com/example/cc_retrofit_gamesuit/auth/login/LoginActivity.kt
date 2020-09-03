@@ -1,5 +1,6 @@
 package com.example.cc_retrofit_gamesuit.auth.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,13 @@ import com.example.cc_retrofit_gamesuit.main.MainActivity
 
 class LoginActivity : AppCompatActivity(), LoginActivityPresenter.Listener {
 
+    companion object {
+        const val SP_NAME = "data_user"
+        const val FIELD_EMAIL = "email"
+        const val ID = "id"
+        const val FIELD_USERNAME = "username"
+    }
+
     private lateinit var presenter: LoginActivityPresenter
     private lateinit var binding: ActivityLoginBinding
 
@@ -19,6 +27,8 @@ class LoginActivity : AppCompatActivity(), LoginActivityPresenter.Listener {
         val view = binding.root
         setContentView(view)
         presenter = LoginActivityPresenter(this)
+
+        val sharedPreferences = getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
 
         //ini untuk ngirim data login ketika user menekan tombol login
         binding.btnLogin.setOnClickListener {
@@ -33,21 +43,21 @@ class LoginActivity : AppCompatActivity(), LoginActivityPresenter.Listener {
                 Toast.makeText(this, "Password anda kosong", Toast.LENGTH_LONG).show()
                 binding.etPassword.requestFocus()
             }else{
-                presenter.loginPerson(binding.etUsername.text.toString(), binding.etPassword.text.toString())
+                presenter.loginPerson(binding.etUsername.text.toString(), binding.etPassword.text.toString(), sharedPreferences)
             }
         }
         binding.btnRegister.setOnClickListener {
             startActivity(Intent(applicationContext, RegisterActivity::class.java))
         }
     }
-    override fun onLoginSuccess(successMessage: String) {
-        Toast.makeText(this, successMessage, Toast.LENGTH_LONG).show()
+    override fun onLoginSuccess(successMessage: String, successSaveData: String) {
+        Toast.makeText(this, "$successMessage dan $successSaveData", Toast.LENGTH_LONG).show()
         startActivity(Intent(applicationContext, MainActivity::class.java))
         finish()
     }
 
-    override fun onLoginFailure(failureMessage: String) {
-        Toast.makeText(this, failureMessage, Toast.LENGTH_LONG).show()
+    override fun onLoginFailure(failureMessage: String, failedSaveData: String) {
+        Toast.makeText(this, "$failureMessage dan $failedSaveData", Toast.LENGTH_LONG).show()
         finish()
     }
 }
