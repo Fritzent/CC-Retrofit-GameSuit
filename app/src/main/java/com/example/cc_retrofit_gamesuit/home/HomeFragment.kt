@@ -1,11 +1,18 @@
 package com.example.cc_retrofit_gamesuit.home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity
+import com.example.cc_retrofit_gamesuit.game.vs_computer.VsComputerActivity
+import com.example.cc_retrofit_gamesuit.game.vs_pemain.VsPemainActivity
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlin.system.exitProcess
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +43,30 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val sharedPreferences = activity?.getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+
+        val nama = sharedPreferences?.getString(LoginActivity.FIELD_USERNAME, "Belum Ada Data")
+
+        username.text = "$nama vs Pemain"
+        username2.text = "$nama vs CPU"
+
+        iv_hal_1.setOnClickListener {
+            startActivity(Intent((activity as HomeActivity), VsPemainActivity::class.java))
+        }
+
+        iv_hal_2.setOnClickListener {
+            startActivity(Intent((activity as HomeActivity), VsComputerActivity::class.java))
+        }
+
+        close.setOnClickListener {
+            activity?.moveTaskToBack(true)
+            exitProcess(1)
+        }
     }
 
     companion object {

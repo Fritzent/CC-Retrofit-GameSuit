@@ -1,16 +1,20 @@
 package com.example.cc_retrofit_gamesuit.game.vs_pemain
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity
 import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
 import com.example.cc_retrofit_gamesuit.databinding.ActivityGameBinding
+import kotlinx.android.synthetic.main.activity_game.*
 
 class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
     private lateinit var binding: ActivityGameBinding
     private lateinit var presenter: VsPemainPresenter
+    private var nama: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,12 +24,19 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         binding = ActivityGameBinding.inflate(layoutInflater)
 
+        val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+
+
+
         HistoryGameDatabase.getInstance(this)?.let {
             presenter = VsPemainPresenter(it, this)
         }
 
         val view = binding.root
 
+        nama = sharedPreferences.getString("username", "Tidak ada username")
+
+        binding.tvPemain.text = nama
         binding.tvComputer.text = "Pemain 2"
 
         binding.ivBatuPemain.setOnClickListener {
@@ -153,8 +164,8 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         binding.ivBatuCom.setBackgroundResource(R.drawable.bg_click)
 
-        presenter.logicGame()
-        presenter.menampilkanHasil()
+        nama?.let { presenter.logicGame(it) }
+        nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
             presenter.loveClick()
@@ -170,8 +181,8 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         binding.ivGuntingCom.setBackgroundResource(R.drawable.bg_click)
 
-        presenter.logicGame()
-        presenter.menampilkanHasil()
+        nama?.let { presenter.logicGame(it) }
+        nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
             presenter.loveClick()
@@ -187,8 +198,8 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
 
         binding.ivKertasCom.setBackgroundResource(R.drawable.bg_click)
 
-        presenter.logicGame()
-        presenter.menampilkanHasil()
+        nama?.let { presenter.logicGame(it) }
+        nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
             presenter.loveClick()

@@ -5,8 +5,9 @@ import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
 import com.example.cc_retrofit_gamesuit.R
 import com.example.cc_retrofit_gamesuit.databinding.ActivityHomeBinding
-import com.example.cc_retrofit_gamesuit.profil.EditEmailFragment
-import com.example.cc_retrofit_gamesuit.profil.EditUsernameFragment
+import com.example.cc_retrofit_gamesuit.history.HistoryFragment
+import com.example.cc_retrofit_gamesuit.profil.editEmail.EditEmailFragment
+import com.example.cc_retrofit_gamesuit.profil.editUsername.EditUsernameFragment
 import com.example.cc_retrofit_gamesuit.profil.ProfilFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
         val homeFragment = HomeFragment()
         val profilFragment = ProfilFragment()
+        val historyFragment = HistoryFragment()
 
         //default fragment
         supportFragmentManager
@@ -48,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navHistory -> {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.frameHomecontainer, profilFragment)
+                        .replace(R.id.frameHomecontainer, historyFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                     true

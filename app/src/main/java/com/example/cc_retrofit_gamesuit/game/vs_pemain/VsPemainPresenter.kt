@@ -56,11 +56,11 @@ class VsPemainPresenter(private val db: HistoryGameDatabase, private val listene
         listener.kertasP2onClick()
     }
 
-    fun menampilkanHasil(){
+    fun menampilkanHasil(nama:String){
         when(hasil){
-            "menang" -> listener.tampilHasilMenang()
-            "kalah" -> listener.tampilHasilKalah()
-            "draw" -> listener.tampilHasilDraw()
+            "$nama menang" -> listener.tampilHasilMenang()
+            "$nama kalah" -> listener.tampilHasilKalah()
+            "$nama draw" -> listener.tampilHasilDraw()
         }
     }
 
@@ -76,23 +76,23 @@ class VsPemainPresenter(private val db: HistoryGameDatabase, private val listene
         Log.d("Pilihan Pemain 2", "Pilihan : $pilihanPemain2")
     }
 
-    fun logicGame(){
+    fun logicGame(nama:String){
 
         when (pilihan){
             "batu" -> when (pilihanPemain2){
-                "batu" -> hasil = "draw"
-                "gunting" -> hasil = "menang"
-                "kertas" -> hasil = "kalah"
+                "batu" -> hasil = "$nama draw"
+                "gunting" -> hasil = "$nama menang"
+                "kertas" -> hasil = "$nama kalah"
             }
             "gunting" -> when (pilihanPemain2){
-                "batu" -> hasil = "kalah"
-                "gunting" -> hasil = "draw"
-                "kertas" -> hasil = "menang"
+                "batu" -> hasil = "$nama kalah"
+                "gunting" -> hasil = "$nama draw"
+                "kertas" -> hasil = "$nama menang"
             }
             "kertas" -> when (pilihanPemain2){
-                "batu" -> hasil = "menang"
-                "gunting" -> hasil = "kalah"
-                "kertas" -> hasil = "draw"
+                "batu" -> hasil = "$nama menang"
+                "gunting" -> hasil = "$nama kalah"
+                "kertas" -> hasil = "$nama draw"
             }
         }
     }

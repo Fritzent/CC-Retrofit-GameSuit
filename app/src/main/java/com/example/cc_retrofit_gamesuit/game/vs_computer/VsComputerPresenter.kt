@@ -24,6 +24,9 @@ class VsComputerPresenter(private val db: HistoryGameDatabase, private val liste
         fun batuOnCLick()
         fun guntingOnClick()
         fun kertasOnClick()
+        fun batuCom()
+        fun kertasCom()
+        fun guntingCom()
 
         fun loveOnClick()
 
@@ -43,11 +46,11 @@ class VsComputerPresenter(private val db: HistoryGameDatabase, private val liste
         listener.kertasOnClick()
     }
 
-    fun menampilkanHasil(){
+    fun menampilkanHasil(nama: String){
         when(hasil){
-            "menang" -> listener.tampilHasilMenang()
-            "kalah" -> listener.tampilHasilKalah()
-            "draw" -> listener.tampilHasilDraw()
+            "$nama menang" -> listener.tampilHasilMenang()
+            "$nama kalah" -> listener.tampilHasilKalah()
+            "$nama draw" -> listener.tampilHasilDraw()
         }
     }
 
@@ -62,25 +65,31 @@ class VsComputerPresenter(private val db: HistoryGameDatabase, private val liste
     private fun setPilihanPemainDua() {
         pilihanPemain2 = gbk.random()
 
+        when(pilihanPemain2){
+            "batu" -> listener.batuCom()
+            "kertas" -> listener.kertasCom()
+            "gunting" -> listener.guntingCom()
+        }
+
         Log.d("Pilihan Pemain 2", "Pilihan : $pilihanPemain2")
     }
 
-    fun logicGame(){
+    fun logicGame(nama: String){
         when (pilihan){
             "batu" -> when (pilihanPemain2){
-                "batu" -> hasil = "draw"
-                "gunting" -> hasil = "menang"
-                "kertas" -> hasil = "kalah"
+                "batu" -> hasil = "$nama draw"
+                "gunting" -> hasil = "$nama menang"
+                "kertas" -> hasil = "$nama kalah"
             }
             "gunting" -> when (pilihanPemain2){
-                "batu" -> hasil = "kalah"
-                "gunting" -> hasil = "draw"
-                "kertas" -> hasil = "menang"
+                "batu" -> hasil = "$nama kalah"
+                "gunting" -> hasil = "$nama draw"
+                "kertas" -> hasil = "$nama menang"
             }
             "kertas" -> when (pilihanPemain2){
-                "batu" -> hasil = "menang"
-                "gunting" -> hasil = "kalah"
-                "kertas" -> hasil = "draw"
+                "batu" -> hasil = "$nama menang"
+                "gunting" -> hasil = "$nama kalah"
+                "kertas" -> hasil = "$nama draw"
             }
         }
     }

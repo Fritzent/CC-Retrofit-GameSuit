@@ -27,7 +27,6 @@ class ProfilFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-//    private lateinit var myContext: ProfilFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +49,6 @@ class ProfilFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         tvIsiUsername.setOnClickListener {
-//            val fm  = it.context.supportFragmentManager
-//            EditUsernameFragment().show(fm,"Edit Username Fragment")
             (activity as HomeActivity).showEditUser()
         }
 

@@ -33,7 +33,7 @@ class LoginActivityPresenter(val listener : Listener) {
 //                    disini push data ke shared preference
                     val editor = sharedPreferences.edit()
                     editor.putString(FIELD_EMAIL, response.body()?.data?.email)
-                    editor.putString(ID, response.body()?.data?.id.toString())
+                    response.body()?.data?.id?.let { editor.putInt(ID, it) }
                     editor.putString(FIELD_USERNAME, response.body()?.data?.username)
 
                     val toastStatus = editor.commit()

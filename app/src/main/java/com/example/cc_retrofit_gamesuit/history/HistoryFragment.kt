@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cc_retrofit_gamesuit.R
 import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGame
 import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
+import com.example.cc_retrofit_gamesuit.home.HomeActivity
 import com.example.cc_retrofit_gamesuit.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_history.*
 
@@ -54,7 +55,7 @@ class HistoryFragment : Fragment(), HistoryFragmentPresenter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        HistoryGameDatabase.getInstance((activity as MainActivity))?.let {
+        HistoryGameDatabase.getInstance((activity as HomeActivity))?.let {
             presenter = HistoryFragmentPresenter(it, this)
         }
     }
@@ -82,21 +83,21 @@ class HistoryFragment : Fragment(), HistoryFragmentPresenter.Listener {
         activity?.runOnUiThread {
             val adapter = HistoryFragmentAdapter(history, presenter)
             rvHistoryCOntainer.layoutManager =
-                LinearLayoutManager((activity as MainActivity), LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager((activity as HomeActivity), LinearLayoutManager.VERTICAL, false)
             rvHistoryCOntainer.adapter = adapter
         }
     }
 
     override fun showDeletedSuccess() {
         activity?.runOnUiThread {
-            Toast.makeText((activity as MainActivity), "Data history Telah dihapus", Toast.LENGTH_LONG).show()
+            Toast.makeText((activity as HomeActivity), "Data history Telah dihapus", Toast.LENGTH_LONG).show()
             presenter.fetchData()
         }
     }
 
     override fun showDeletedFailed() {
         activity?.runOnUiThread {
-            Toast.makeText((activity as MainActivity), "Data history Gagal dihapus", Toast.LENGTH_LONG).show()
+            Toast.makeText((activity as HomeActivity), "Data history Gagal dihapus", Toast.LENGTH_LONG).show()
         }
     }
 }

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cc_retrofit_gamesuit.auth.register.RegisterActivity
 import com.example.cc_retrofit_gamesuit.databinding.ActivityLoginBinding
+import com.example.cc_retrofit_gamesuit.home.HomeActivity
 import com.example.cc_retrofit_gamesuit.main.MainActivity
 
 class LoginActivity : AppCompatActivity(), LoginActivityPresenter.Listener {
@@ -52,7 +53,7 @@ class LoginActivity : AppCompatActivity(), LoginActivityPresenter.Listener {
     }
     override fun onLoginSuccess(successMessage: String, successSaveData: String) {
         Toast.makeText(this, "$successMessage dan $successSaveData", Toast.LENGTH_LONG).show()
-        startActivity(Intent(applicationContext, MainActivity::class.java))
+        startActivity(Intent(applicationContext, HomeActivity::class.java))
         finish()
     }
 

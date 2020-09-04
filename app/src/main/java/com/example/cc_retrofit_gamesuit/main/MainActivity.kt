@@ -10,15 +10,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        try {
-            this.supportActionBar?.hide()
-        } catch (e: NullPointerException) {}
-
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.frame_layout, HistoryFragment())
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .commit()
     }
 }

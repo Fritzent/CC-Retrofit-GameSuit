@@ -13,10 +13,10 @@ data class PostPersonLoginResponse(
 ) {
     data class Data(
         @SerializedName("email")
-        val email: String,
+        var email: String,
         @SerializedName("id")
-        val id: Int,
+        var id: Int,
         @SerializedName("username")
-        val username: String
+        var username: String
     )
 }
