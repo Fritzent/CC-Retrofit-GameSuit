@@ -10,10 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".game.vs_pemain.VsPemainActivity">
-
         </activity>
         <activity android:name=".game.vs_computer.VsComputerActivity">
-
         </activity>
         <activity android:name=".auth.login.LoginActivity" />
         <activity android:name=".main.MainActivity"/>
