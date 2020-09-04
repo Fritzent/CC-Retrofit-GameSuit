@@ -168,7 +168,9 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
     }
 
@@ -185,7 +187,9 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
     }
 
@@ -202,7 +206,9 @@ class VsPemainActivity : AppCompatActivity(), VsPemainPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
     }
 

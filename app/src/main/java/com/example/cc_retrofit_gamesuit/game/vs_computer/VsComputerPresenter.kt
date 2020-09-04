@@ -98,10 +98,10 @@ class VsComputerPresenter(private val db: HistoryGameDatabase, private val liste
         tanggal = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Date())
     }
 
-    fun loveClick(){
+    fun loveClick(idPemain:Int){
         getTanggal()
 
-        val history = HistoryGame(null, tanggal, hasil)
+        val history = HistoryGame(null, idPemain, tanggal, hasil)
         saveHistory(history)
 
         listener.loveOnClick()

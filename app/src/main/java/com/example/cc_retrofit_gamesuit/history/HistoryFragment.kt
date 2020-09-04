@@ -1,5 +1,6 @@
 package com.example.cc_retrofit_gamesuit.history
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity
 import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGame
 import com.example.cc_retrofit_gamesuit.database.roomHistory.HistoryGameDatabase
 import com.example.cc_retrofit_gamesuit.home.HomeActivity
@@ -81,7 +83,8 @@ class HistoryFragment : Fragment(), HistoryFragmentPresenter.Listener {
 
     override fun showHistoryList(history: List<HistoryGame>) {
         activity?.runOnUiThread {
-            val adapter = HistoryFragmentAdapter(history, presenter)
+            val sharedPreferences = activity?.getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val adapter = sharedPreferences?.let { HistoryFragmentAdapter(history, presenter, it) }
             rvHistoryCOntainer.layoutManager =
                 LinearLayoutManager((activity as HomeActivity), LinearLayoutManager.VERTICAL, false)
             rvHistoryCOntainer.adapter = adapter

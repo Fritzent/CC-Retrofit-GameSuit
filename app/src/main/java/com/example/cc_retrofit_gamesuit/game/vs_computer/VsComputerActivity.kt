@@ -31,7 +31,7 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
 
         val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
 
-        nama = sharedPreferences.getString("username", "Tidak ada username")
+        nama = sharedPreferences.getString(LoginActivity.FIELD_USERNAME, "Tidak ada username")
 
         binding.tvPemain.text = nama
 
@@ -93,7 +93,9 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
 
         binding.ivBatuPemain.isClickable = false
@@ -109,7 +111,9 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
 
         binding.ivBatuPemain.isClickable = false
@@ -125,7 +129,9 @@ class VsComputerActivity : AppCompatActivity(), VsComputerPresenter.Listener {
         nama?.let { presenter.menampilkanHasil(it) }
 
         binding.loveBTN.setOnClickListener {
-            presenter.loveClick()
+            val sharedPreferences = getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+            val idPemain = sharedPreferences.getInt(LoginActivity.ID, 0)
+            presenter.loveClick(idPemain)
         }
 
         binding.ivBatuPemain.isClickable = false
