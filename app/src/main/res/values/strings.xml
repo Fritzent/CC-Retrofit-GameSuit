@@ -13,4 +13,12 @@
     <string name="text_daftar">Daftar</string>
     <string name="text_sudah_punya_akun">Sudah Punya Akun?</string>
     <string name="text_click_here">Click Here</string>
+    <string name="version_app">V.2.0.0</string>
+    <string name="splashimage">SplashImage</string>
+    <string name="skip">SKIP</string>
+    <string name="next">NEXT</string>
+    <string name="text_splash_satu">Bermain Suit melawan sesama pemain</string>
+    <string name="text_splash_dua">Bermain Suit melawan komputer</string>
+    <string name="text_splash_tiga">Persiapkan dirimu!</string>
+    <string name="start">GOT IT</string>
 </resources>
