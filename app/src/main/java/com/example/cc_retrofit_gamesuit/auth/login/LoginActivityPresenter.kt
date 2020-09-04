@@ -7,9 +7,8 @@ import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity.Companion.ID
 import com.example.cc_retrofit_gamesuit.network.ApiClient
 import com.example.cc_retrofit_gamesuit.response.PostPersonLoginBody
 import com.example.cc_retrofit_gamesuit.response.PostPersonLoginResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import retrofit2.*
+
 
 class LoginActivityPresenter(val listener : Listener) {
 

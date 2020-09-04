@@ -1,11 +1,13 @@
 package com.example.cc_retrofit_gamesuit.profil
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity
 import com.example.cc_retrofit_gamesuit.home.HomeActivity
 import kotlinx.android.synthetic.main.fragment_edit_email.*
 import kotlinx.android.synthetic.main.fragment_edit_username.*
@@ -56,8 +58,17 @@ class ProfilFragment : Fragment() {
         tvIsiEmail.setOnClickListener {
             (activity as HomeActivity).showEditEmail()
         }
+
+        val sharedPreferences = activity?.getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+
+        val username = sharedPreferences?.getString(LoginActivity.FIELD_USERNAME, "Belum Ada Data")
+        val email = sharedPreferences?.getString(LoginActivity.FIELD_EMAIL, "Belum Ada Data")
+
+        tvIsiUsername.setText(username)
+        tvIsiEmail.setText(email)
+
     }
-    
+
 
     companion object {
         /**

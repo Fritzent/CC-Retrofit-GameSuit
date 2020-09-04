@@ -1,5 +1,6 @@
 package com.example.cc_retrofit_gamesuit.profil
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.cc_retrofit_gamesuit.R
+import com.example.cc_retrofit_gamesuit.auth.login.LoginActivity
+import kotlinx.android.synthetic.main.fragment_edit_username.*
+import kotlinx.android.synthetic.main.fragment_profil.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +41,27 @@ class EditUsernameFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_edit_username, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val sharedPreferences = activity?.getSharedPreferences(LoginActivity.SP_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+
+        val username = sharedPreferences?.getString(LoginActivity.FIELD_USERNAME, "Belum Ada Data")
+
+        etUsernameEdit.setText(username)
+
+
+
+        btnUsernameCancel.setOnClickListener {
+            dismiss()
+        }
+
+        btnUsernameUpdate.setOnClickListener {
+
+        }
     }
 
     companion object {

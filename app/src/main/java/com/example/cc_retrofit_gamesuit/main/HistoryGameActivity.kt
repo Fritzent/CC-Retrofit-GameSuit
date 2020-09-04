@@ -12,22 +12,22 @@ class HistoryGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_game)
 
-        Toast.makeText(this,"Data Masih Kosong", Toast.LENGTH_LONG)
-
-        btnBattle.setOnClickListener {
-            val intent = Intent(this, HistoryRecordedActivity::class.java)
-            startActivity(intent)
-
-        }
-        btnHistory.setOnClickListener {
-            val intent = Intent(this, HistoryRecordedActivity::class.java)
-            startActivity(intent)
-
-        }
-        btnProfile.setOnClickListener {
-            val intent = Intent(this, HistoryRecordedActivity::class.java)
-            startActivity(intent)
-
-        }
+//        Toast.makeText(this,"Data Masih Kosong", Toast.LENGTH_LONG)
+//
+//        btnBattle.setOnClickListener {
+//            val intent = Intent(this, HistoryRecordedActivity::class.java)
+//            startActivity(intent)
+//
+//        }
+//        btnHistory.setOnClickListener {
+//            val intent = Intent(this, HistoryRecordedActivity::class.java)
+//            startActivity(intent)
+//
+//        }
+//        btnProfile.setOnClickListener {
+//            val intent = Intent(this, HistoryRecordedActivity::class.java)
+//            startActivity(intent)
+//
+//        }
     }
 }

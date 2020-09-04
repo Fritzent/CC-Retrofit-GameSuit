@@ -47,6 +47,6 @@ dependencies {
     //GSON untuk mengubah JSON menjadi POJO ataupun Sebaliknya
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     //Logging interceptor untuk melihat traffic jaringan
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.6.0'
 
 }
