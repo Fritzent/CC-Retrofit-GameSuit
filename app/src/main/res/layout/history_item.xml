@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:layout_marginTop="16dp"
+    android:background="#E1F5FE">
+
+    <TextView
+        android:id="@+id/tvTanggal"
+        android:text="tanggal: "
+        android:textColor="#2196F3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvHasilTanggal"
+        android:text="04/22/2020"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:text="Hasil: "
+        android:textColor="#2196F3"
+        app:layout_constraintTop_toBottomOf="@id/tvTanggal"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvHasilPertandingan"
+        android:text="Ervin Menang"
+        app:layout_constraintTop_toTopOf="@id/tvHasil"
+        app:layout_constraintStart_toEndOf="@id/tvHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/btnHapus"
+        android:text="Hapus"
+        android:textSize="16sp"
+        android:textColor="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTanggal"
+        app:layout_constraintBottom_toBottomOf="@id/tvHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
